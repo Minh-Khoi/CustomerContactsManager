@@ -326,7 +326,7 @@ public class UpdateFrame extends javax.swing.JFrame {
         PhoneNumbersDAO phoneDAO = new PhoneNumbersDAO();
         EmailDAO emailsDAO = new EmailDAO();
         CustomersDAO customerDAO=new CustomersDAO();
-        /*if(address.length()>0 && (phoneNumber.length()==0 || Pattern.matches("^[0-9]*$", phoneNumber)))*/{
+        if(address.length()>0 || ((phoneNumber.length()!=0 || Pattern.matches("^[0-9]*$", phoneNumber))) || email.length()>0){
             // Update Address
             if(address.length()>0) customerDAO.update(new Customers(readCustomerByName(cusName).getCustomerID(), cusName, address));
             // Add phone numbers
@@ -335,6 +335,8 @@ public class UpdateFrame extends javax.swing.JFrame {
             // Add Email
             if(email.length()>0) emailsDAO.create(new Emails(0, readCustomerByName(cusName).getCustomerID(), email));
             setDatas();
+        } else {
+            JOptionPane.showMessageDialog(null, "Some thing wrong!! Check the values. May be the informations are duplicated");
         }
     }//GEN-LAST:event_buttonSubmitActionPerformed
 

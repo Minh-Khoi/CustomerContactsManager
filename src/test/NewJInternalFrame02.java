@@ -245,8 +245,9 @@ public class NewJInternalFrame02 extends javax.swing.JInternalFrame {
             // Add into Emails Table in Database
             emailDAO.create(new Emails(0, readCustomerByName(customerName).getCustomerID(), email));
             this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Some thing wrong!! Check the values. May be the informations are duplicated");
         }
-        JOptionPane.showMessageDialog(null, "Some thing wrong!! Check the values. May be the informations are duplicated");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
