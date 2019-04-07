@@ -320,23 +320,60 @@ public class UpdateFrame extends javax.swing.JFrame {
         setDatas();
     }//GEN-LAST:event_deletePhoneButtonActionPerformed
 
-    
+    /**
+     * Check if a Phone Numbers EXISTING in database or NOT (check DUPLICATED)
+     * @param phone
+     * @return boolean: TRUE if Phone Number is EXISTING in database
+     */
+    private boolean phoneNumbersExisting(String phone){
+        PhoneNumbersDAO dao = new PhoneNumbersDAO();
+        List<PhoneNumbers> list = dao.readAll();
+        if(list.size()>0){
+            for(PhoneNumbers ph : list){
+                if(ph.getPhoneNumber().equals(phone)) return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Check if an  email EXISTING in database or NOT (check DUPLICATED)
+     * @param email
+     * @return boolean: TRUE if email is EXISTING in database
+     */
+    private boolean emailsExisting(String email){
+        EmailDAO dao = new EmailDAO();
+        List<Emails> list = dao.readAll();
+        if(list.size()>0){
+            for(Emails e : list){
+                if(e.getEmail().equals(email)) return true;
+            }
+        }
+        return false;
+    }
     private void buttonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSubmitActionPerformed
         String address = addressField.getText(), phoneNumber = phoneNumbersField.getText(), email=emailsField.getText();
         PhoneNumbersDAO phoneDAO = new PhoneNumbersDAO();
         EmailDAO emailsDAO = new EmailDAO();
         CustomersDAO customerDAO=new CustomersDAO();
-        if(address.length()>0 || ((phoneNumber.length()!=0 || Pattern.matches("^[0-9]*$", phoneNumber))) || email.length()>0){
-            // Update Address
-            if(address.length()>0) customerDAO.update(new Customers(readCustomerByName(cusName).getCustomerID(), cusName, address));
-            // Add phone numbers
-            if (phoneNumber.length()!=0 && Pattern.matches("^[0-9]*$", phoneNumber))
+        
+        if(address.length()>0 || ((phoneNumber.length()!=0 && Pattern.matches("^[0-9]*$", phoneNumber) )) || (email.length()>0 )){
+            // Update Address 
+            customerDAO.update(new Customers(readCustomerByName(cusName).getCustomerID(), cusName, address));
+            // Add phone numbers valid (length>0 and only digits) and not-duplicated content
+            if (phoneNumber.length()!=0 && Pattern.matches("^[0-9]*$", phoneNumber)){ 
+                if(!phoneNumbersExisting(phoneNumber))
                                         phoneDAO.create(new PhoneNumbers(0, readCustomerByName(cusName).getCustomerID(), phoneNumber));
-            // Add Email
-            if(email.length()>0) emailsDAO.create(new Emails(0, readCustomerByName(cusName).getCustomerID(), email));
+                else JOptionPane.showMessageDialog(null, "Some thing wrong!! The entered informations are duplicated");
+            }
+            // Add Email valid (length >0) and not-duplicated 
+            if(email.length()>0) { 
+                if(!emailsExisting(email)) 
+                            emailsDAO.create(new Emails(0, readCustomerByName(cusName).getCustomerID(), email));
+                else JOptionPane.showMessageDialog(null, "Some thing wrong!! The entered informations are duplicated");
+            }
             setDatas();
         } else {
-            JOptionPane.showMessageDialog(null, "Some thing wrong!! Check the values. May be the informations are duplicated");
+            JOptionPane.showMessageDialog(null, "Some thing wrong!! All fields are empty ");
         }
     }//GEN-LAST:event_buttonSubmitActionPerformed
 
