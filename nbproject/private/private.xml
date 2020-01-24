@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/test/TEST.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/test/Form.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/test/NewJInternalFrame.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/test/DemoJInternalFrame.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/model/dao/CustomersDAO.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/model/dao/PhoneNumbersDAO.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/model/dto/PhoneNumbers.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/test/NewJInternalFrame02.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/test/UpdateFrame.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/test/DemoJInternalFrame02.java</file>
-            <file>file:/E:/E-Project%20Sem%202/CustomersContactsManager/src/model/dto/Customers.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

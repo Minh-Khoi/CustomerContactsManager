@@ -39,7 +39,7 @@ public class DBConnector {
         return conn;
     }
     
-//    public static void main(String[] args) {
-//        new DBConnector().getConn();
-//    }
+    public static void main(String[] args) {
+        new DBConnector().getConn();
+    }
 }

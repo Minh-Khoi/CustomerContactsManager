@@ -1,0 +1,28 @@
+Chào mừng các bạn đến với video demo đồ án Customer Contacts Manager
+Đây là một phần mềm Desktop app dùng để lưu trũ thông tin liên hệ của 
+khách hàng bao gồm sđt, email, địa chỉ và họ tên.
+
+Mình sẽ hướng dẫn các bạn cài đặt
+Trước hết, máy tính các bạn cần cài sẵn SQL Server và Netbeans IDE
+Các bạn mở thư mục Database script trong project ra và thực thi toàn
+bộ câu lệnh trong đó bằng SQL server
+
+Chúng ta đã có một database gồm 03 bảng như các bạn thấy trong diargram
+Mỗi Customer chỉ có 01 họ tên, và 01 địa chỉ sinh sống; nhưng có thể có nhiều
+số điện thoại hoặc email. Vì vậy, mình lưu trữ sđt và emails trong một 
+bảng riêng có liên kết khóa ngoại vs Customers thông qua CustomerID
+
+Bây giờ, hãy khám phá SP
+Hiện tại, chưa có khách hàng (Customer) nào đc lưu. Ta sẽ thử add một người vào
+Add thành công
+Thêm vài Customer nữa
+Vậy là ta đã add được 03 customers. Trong bảng trên, Mình sắp xếp theo thứ
+tự abc theo tên, để cho dễ tìm.
+Các bạn có thể thêm sđt và email hoặc chỉnh sửa họ tên, địa chỉ cho
+từng customer.
+Bây giờ bạn muốn xóa một sđt hoặc email. hoặc bạn muốn xóa hẳn một 
+Customer ra khỏi danh sách.
+Danh sách customer đã được xếp theo thứ tự alphabet. Tuy nhiên bạn có thẻ
+dùng chức năng Find để tìm một customer cụ thể. Yêu cầu là bạn phải gõ
+chính xác họ và tên.
+Mình demo đến đây thôi. Chúc các bạn học tốt :)
